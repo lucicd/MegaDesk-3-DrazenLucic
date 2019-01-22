@@ -147,17 +147,29 @@
             // 
             this.nupDeskWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nupDeskWidth.Location = new System.Drawing.Point(260, 88);
+            this.nupDeskWidth.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.nupDeskWidth.Name = "nupDeskWidth";
             this.nupDeskWidth.Size = new System.Drawing.Size(120, 28);
             this.nupDeskWidth.TabIndex = 9;
+            this.nupDeskWidth.Enter += new System.EventHandler(this.nupField_Enter);
             // 
             // nupDeskDepth
             // 
             this.nupDeskDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nupDeskDepth.Location = new System.Drawing.Point(260, 138);
+            this.nupDeskDepth.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.nupDeskDepth.Name = "nupDeskDepth";
             this.nupDeskDepth.Size = new System.Drawing.Size(120, 28);
             this.nupDeskDepth.TabIndex = 10;
+            this.nupDeskDepth.Enter += new System.EventHandler(this.nupField_Enter);
             // 
             // cboNumberOfDrawers
             // 

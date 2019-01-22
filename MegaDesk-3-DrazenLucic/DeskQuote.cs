@@ -36,9 +36,9 @@ namespace MegaDesk_3_DrazenLucic
             get
             {
                 int surfaceArea = this.QuotedDesk.Width * this.QuotedDesk.Depth;
-                if (surfaceArea > 10000)
+                if (surfaceArea > 1000)
                 {
-                    return 1000 - surfaceArea;
+                    return (surfaceArea - 1000) * 1.00;
                 }
                 else
                 {

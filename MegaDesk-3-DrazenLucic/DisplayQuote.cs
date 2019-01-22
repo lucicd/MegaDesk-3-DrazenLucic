@@ -37,16 +37,16 @@ namespace MegaDesk_3_DrazenLucic
             lblDeskDepth.Text = desk.Depth.ToString();
             lblSurfaceArea.Text = desk.SurfaceArea.ToString();
             lblNumberOfDrawers.Text = desk.NumberOfDrawers.ToString();
-            lblNumberOfDrawers.Text = desk.SurfaceMaterialDescr;
-            lblProductionTime.Text = desk.ProductionTime.ToString();
+            lblSurfaceMaterial.Text = desk.SurfaceMaterialDescr;
+            lblProductionTime.Text = desk.ProductionTime.ToString() + " days";
 
-            lblOrderDate.Text = quote.QuoteDate.ToShortTimeString();
-            lblBasePrice.Text = quote.BasePrice.ToString("C");
-            lblAreaSurcharge.Text = quote.SurfaceAddon.ToString("C");
-            lblMaterialSurcharge.Text = quote.MaterialAddon.ToString("C");
-            lblDrawersSurcharge.Text = quote.DrawersAddon.ToString("C");
-            lblRushOrderSurcharge.Text = quote.RushOrderAddon.ToString("C");
-            lblTotalPrice.Text = quote.QuoteAmount.ToString("C");
+            lblOrderDate.Text = String.Format("{0,10:dd-MMM-yy}", quote.QuoteDate);
+            lblBasePrice.Text = String.Format("{0,10:$0.00}", quote.BasePrice);
+            lblAreaSurcharge.Text = String.Format("{0,10:$0.00}", quote.SurfaceAddon);
+            lblMaterialSurcharge.Text = String.Format("{0,10:$0.00}", quote.MaterialAddon);
+            lblDrawersSurcharge.Text = String.Format("{0,10:$0.00}", quote.DrawersAddon);
+            lblRushOrderSurcharge.Text = String.Format("{0,10:$0.00}", quote.RushOrderAddon);
+            lblTotalPrice.Text = String.Format("{0,10:$0.00}", quote.QuoteAmount);
         }
 
         private void DisplayQuote_Shown(object sender, EventArgs e)

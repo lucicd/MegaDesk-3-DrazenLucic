@@ -61,5 +61,31 @@
                 return material;
             }
         }
+
+        public Materials SurfaceMaterialId(string materialDesc)
+        {
+            Materials materialId = Materials.Oak;
+            switch (materialDesc)
+            {
+                case "Oak":
+                    materialId = Materials.Oak;
+                    break;
+                case "Laminate":
+                    materialId = Materials.Laminate;
+                    break;
+                case "Pine":
+                    materialId = Materials.Pine;
+                    break;
+                case "Rosewood":
+                    materialId = Materials.Rosewood;
+                    break;
+                case "Veneer":
+                    materialId = Materials.Veneer;
+                    break;
+                default:
+                    break;
+            }
+            return materialId;
+        }
     }
 }

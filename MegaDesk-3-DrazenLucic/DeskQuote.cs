@@ -149,5 +149,25 @@ namespace MegaDesk_3_DrazenLucic
                 return rushOrderSurcharge;
             }
         }
+
+        public string[] GridRow
+        {
+            get
+            {
+                Desk desk = this.QuotedDesk;
+                string[] row = {
+                    desk.CustomerName,
+                    String.Format("{0,10:dd-MMM-yy}", this.QuoteDate),
+                    desk.Width.ToString(),
+                    desk.Depth.ToString(),
+                    desk.SurfaceArea.ToString(),
+                    desk.SurfaceMaterialDescr,
+                    desk.NumberOfDrawers.ToString(),
+                    desk.ProductionTime.ToString() + " days",
+                    String.Format("{0,10:$0.00}", this.QuoteAmount)
+                };
+                return row;
+            }
+        }
     }
 }

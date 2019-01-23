@@ -53,9 +53,9 @@ namespace MegaDesk_3_DrazenLucic
                 newDesk.ProductionTime = 14;
             }
 
-            newDesk.SurfaceMaterial = newDesk.SurfaceMaterialId(cboSurfaceMaterial.Text);
+            newDesk.SurfaceMaterial = Program.SurfaceMaterialId(cboSurfaceMaterial.Text);
 
-            mainMenu.DeskQuotes.Add(newDesk.Quote);
+            Program.Quotes.Add(newDesk.Quote);
 
             DisplayQuote displayQuoteForm = new DisplayQuote(newDesk.Quote);
             displayQuoteForm.Tag = mainMenu;

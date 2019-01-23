@@ -47,55 +47,8 @@
         {
             get
             {
-                string material = "";
-                switch (this.SurfaceMaterial)
-                {
-                    case Materials.Oak:
-                        material = "Oak";
-                        break;
-                    case Materials.Laminate:
-                        material = "Laminate";
-                        break;
-                    case Materials.Pine:
-                        material = "Pine";
-                        break;
-                    case Materials.Rosewood:
-                        material = "Rosewood";
-                        break;
-                    case Materials.Veneer:
-                        material = "Veneer";
-                        break;
-                    default:
-                        break;
-                }
-                return material;
+                return Program.SurfaceMaterialDescr(this.SurfaceMaterial);
             }
-        }
-
-        public Materials SurfaceMaterialId(string materialDesc)
-        {
-            Materials materialId = Materials.Oak;
-            switch (materialDesc)
-            {
-                case "Oak":
-                    materialId = Materials.Oak;
-                    break;
-                case "Laminate":
-                    materialId = Materials.Laminate;
-                    break;
-                case "Pine":
-                    materialId = Materials.Pine;
-                    break;
-                case "Rosewood":
-                    materialId = Materials.Rosewood;
-                    break;
-                case "Veneer":
-                    materialId = Materials.Veneer;
-                    break;
-                default:
-                    break;
-            }
-            return materialId;
         }
     }
 }

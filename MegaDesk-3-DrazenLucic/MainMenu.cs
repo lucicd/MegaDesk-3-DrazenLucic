@@ -5,11 +5,9 @@ namespace MegaDesk_3_DrazenLucic
 {
     public partial class MainMenu : Form
     {
-        public DeskQuotes DeskQuotes { get; }
 
         public MainMenu()
         {
-            this.DeskQuotes = new DeskQuotes();
             InitializeComponent();
         }
 

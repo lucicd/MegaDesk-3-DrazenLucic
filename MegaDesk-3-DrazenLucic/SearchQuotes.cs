@@ -27,5 +27,26 @@ namespace MegaDesk_3_DrazenLucic
             var mainMenu = (MainMenu)Tag;
             mainMenu.Show();
         }
+
+        private void populateGrid(string materialDescr)
+        {
+            dataGridView1.Rows.Clear();
+            List<DeskQuote> quotes = Program.Quotes.GetFiltered(materialDescr);
+            foreach (DeskQuote quote in quotes)
+            {
+                dataGridView1.Rows.Add(quote.GridRow);
+            }
+        }
+
+        private void cboSurfaceMaterial_SelectedValueChanged(object sender, EventArgs e)
+        {
+            populateGrid(cboSurfaceMaterial.Text);
+        }
+
+        private void SearchQuotes_Load(object sender, EventArgs e)
+        {
+            cboSurfaceMaterial.SelectedItem = "All";
+            populateGrid("All");
+        }
     }
 }

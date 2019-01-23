@@ -22,25 +22,12 @@ namespace MegaDesk_3_DrazenLucic
             mainMenu.Show();
         }
 
-        private void ViewAllQuotes_Activated(object sender, EventArgs e)
+        private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
-            var mainMenu = (MainMenu)Tag;
-            List<DeskQuote> quotes = mainMenu.DeskQuotes.getAll();
+            List<DeskQuote> quotes = Program.Quotes.GetAll();
             foreach (DeskQuote quote in quotes)
             {
-                Desk desk = quote.QuotedDesk;
-                string[] row = {
-                    desk.CustomerName,
-                    String.Format("{0,10:dd-MMM-yy}", quote.QuoteDate),
-                    desk.Width.ToString(),
-                    desk.Depth.ToString(),
-                    desk.SurfaceArea.ToString(),
-                    desk.SurfaceMaterialDescr,
-                    desk.NumberOfDrawers.ToString(),
-                    desk.ProductionTime.ToString() + " days",
-                    String.Format("{0,10:$0.00}", quote.QuoteAmount)
-                };
-                dataGridView1.Rows.Add(row);
+                dataGridView1.Rows.Add(quote.GridRow);
             }
         }
     }

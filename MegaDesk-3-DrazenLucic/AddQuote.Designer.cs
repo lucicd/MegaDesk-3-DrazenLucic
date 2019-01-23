@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,9 +47,11 @@
             this.rboProductionTime7 = new System.Windows.Forms.RadioButton();
             this.rboProductionTime5 = new System.Windows.Forms.RadioButton();
             this.gboProductionTime = new System.Windows.Forms.GroupBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nupDeskWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDeskDepth)).BeginInit();
             this.gboProductionTime.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -65,7 +68,6 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.CausesValidation = false;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(159, 465);
             this.btnAdd.Name = "btnAdd";
@@ -142,6 +144,8 @@
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(336, 28);
             this.txtCustomerName.TabIndex = 8;
+            this.txtCustomerName.Validating += new System.ComponentModel.CancelEventHandler(this.txtCustomerName_Validating);
+            this.txtCustomerName.Validated += new System.EventHandler(this.txtCustomerName_Validated);
             // 
             // nupDeskWidth
             // 
@@ -156,6 +160,8 @@
             this.nupDeskWidth.Size = new System.Drawing.Size(120, 28);
             this.nupDeskWidth.TabIndex = 9;
             this.nupDeskWidth.Enter += new System.EventHandler(this.nupField_Enter);
+            this.nupDeskWidth.Validating += new System.ComponentModel.CancelEventHandler(this.nupDeskWidth_Validating);
+            this.nupDeskWidth.Validated += new System.EventHandler(this.nupDeskWidth_Validated);
             // 
             // nupDeskDepth
             // 
@@ -170,9 +176,12 @@
             this.nupDeskDepth.Size = new System.Drawing.Size(120, 28);
             this.nupDeskDepth.TabIndex = 10;
             this.nupDeskDepth.Enter += new System.EventHandler(this.nupField_Enter);
+            this.nupDeskDepth.Validating += new System.ComponentModel.CancelEventHandler(this.nupDeskDepth_Validating);
+            this.nupDeskDepth.Validated += new System.EventHandler(this.nupDeskDepth_Validated);
             // 
             // cboNumberOfDrawers
             // 
+            this.cboNumberOfDrawers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNumberOfDrawers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNumberOfDrawers.FormattingEnabled = true;
             this.cboNumberOfDrawers.Items.AddRange(new object[] {
@@ -189,9 +198,12 @@
             this.cboNumberOfDrawers.Size = new System.Drawing.Size(121, 30);
             this.cboNumberOfDrawers.Sorted = true;
             this.cboNumberOfDrawers.TabIndex = 11;
+            this.cboNumberOfDrawers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboNumberOfDrawers_KeyDown);
+            this.cboNumberOfDrawers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNumberOfDrawers_KeyPress);
             // 
             // cboSurfaceMaterial
             // 
+            this.cboSurfaceMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSurfaceMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSurfaceMaterial.FormattingEnabled = true;
             this.cboSurfaceMaterial.Items.AddRange(new object[] {
@@ -269,6 +281,10 @@
             this.gboProductionTime.TabIndex = 17;
             this.gboProductionTime.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -299,6 +315,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupDeskDepth)).EndInit();
             this.gboProductionTime.ResumeLayout(false);
             this.gboProductionTime.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +341,6 @@
         private System.Windows.Forms.RadioButton rboProductionTime7;
         private System.Windows.Forms.RadioButton rboProductionTime5;
         private System.Windows.Forms.GroupBox gboProductionTime;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

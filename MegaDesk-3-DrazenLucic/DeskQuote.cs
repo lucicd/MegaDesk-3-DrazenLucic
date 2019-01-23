@@ -27,7 +27,7 @@ namespace MegaDesk_3_DrazenLucic
         public double BasePrice
         {
             get {
-                return 200;
+                return Desk.BASE_PRICE;
             }
         }
 
@@ -36,9 +36,10 @@ namespace MegaDesk_3_DrazenLucic
             get
             {
                 int surfaceArea = this.QuotedDesk.Width * this.QuotedDesk.Depth;
-                if (surfaceArea > 1000)
+                if (surfaceArea > Desk.AREA_SURCHARGE_THRESHOLD)
                 {
-                    return (surfaceArea - 1000) * 1.00;
+                    return (surfaceArea - Desk.AREA_SURCHARGE_THRESHOLD) * 
+                        Desk.AREA_SURCHARGE_PER_UNIT;
                 }
                 else
                 {
@@ -51,7 +52,7 @@ namespace MegaDesk_3_DrazenLucic
         {
             get
             {
-                return this.QuotedDesk.NumberOfDrawers * 50;
+                return this.QuotedDesk.NumberOfDrawers * Desk.DRAWER_SURCHARGE;
             }
         }
 

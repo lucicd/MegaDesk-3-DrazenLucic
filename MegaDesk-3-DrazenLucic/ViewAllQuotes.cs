@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MegaDesk_3_DrazenLucic
@@ -26,6 +20,28 @@ namespace MegaDesk_3_DrazenLucic
         {
             var mainMenu = (MainMenu)Tag;
             mainMenu.Show();
+        }
+
+        private void ViewAllQuotes_Activated(object sender, EventArgs e)
+        {
+            var mainMenu = (MainMenu)Tag;
+            List<DeskQuote> quotes = mainMenu.DeskQuotes.getAll();
+            foreach (DeskQuote quote in quotes)
+            {
+                Desk desk = quote.QuotedDesk;
+                string[] row = {
+                    desk.CustomerName,
+                    String.Format("{0,10:dd-MMM-yy}", quote.QuoteDate),
+                    desk.Width.ToString(),
+                    desk.Depth.ToString(),
+                    desk.SurfaceArea.ToString(),
+                    desk.SurfaceMaterialDescr,
+                    desk.NumberOfDrawers.ToString(),
+                    desk.ProductionTime.ToString() + " days",
+                    String.Format("{0,10:$0.00}", quote.QuoteAmount)
+                };
+                dataGridView1.Rows.Add(row);
+            }
         }
     }
 }

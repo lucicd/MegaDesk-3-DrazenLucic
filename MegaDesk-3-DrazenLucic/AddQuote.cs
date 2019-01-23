@@ -55,6 +55,8 @@ namespace MegaDesk_3_DrazenLucic
 
             newDesk.SurfaceMaterial = newDesk.SurfaceMaterialId(cboSurfaceMaterial.Text);
 
+            mainMenu.DeskQuotes.Add(newDesk.Quote);
+
             DisplayQuote displayQuoteForm = new DisplayQuote(newDesk.Quote);
             displayQuoteForm.Tag = mainMenu;
             displayQuoteForm.Show(mainMenu);

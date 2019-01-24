@@ -145,7 +145,6 @@
             this.txtCustomerName.Size = new System.Drawing.Size(336, 28);
             this.txtCustomerName.TabIndex = 8;
             this.txtCustomerName.Validating += new System.ComponentModel.CancelEventHandler(this.txtCustomerName_Validating);
-            this.txtCustomerName.Validated += new System.EventHandler(this.txtCustomerName_Validated);
             // 
             // nupDeskWidth
             // 
@@ -161,7 +160,6 @@
             this.nupDeskWidth.TabIndex = 9;
             this.nupDeskWidth.Enter += new System.EventHandler(this.nupField_Enter);
             this.nupDeskWidth.Validating += new System.ComponentModel.CancelEventHandler(this.nupDeskWidth_Validating);
-            this.nupDeskWidth.Validated += new System.EventHandler(this.nupDeskWidth_Validated);
             // 
             // nupDeskDepth
             // 
@@ -177,7 +175,6 @@
             this.nupDeskDepth.TabIndex = 10;
             this.nupDeskDepth.Enter += new System.EventHandler(this.nupField_Enter);
             this.nupDeskDepth.Validating += new System.ComponentModel.CancelEventHandler(this.nupDeskDepth_Validating);
-            this.nupDeskDepth.Validated += new System.EventHandler(this.nupDeskDepth_Validated);
             // 
             // cboNumberOfDrawers
             // 
@@ -289,7 +286,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 569);
+            this.ClientSize = new System.Drawing.Size(674, 606);
+            this.ControlBox = false;
             this.Controls.Add(this.gboProductionTime);
             this.Controls.Add(this.cboSurfaceMaterial);
             this.Controls.Add(this.cboNumberOfDrawers);

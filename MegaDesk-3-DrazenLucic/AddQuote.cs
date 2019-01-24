@@ -29,6 +29,7 @@ namespace MegaDesk_3_DrazenLucic
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!ValidForm()) return;
             var mainMenu = (MainMenu)Tag;
             Desk newDesk = new Desk();
             newDesk.CustomerName = txtCustomerName.Text;
@@ -71,77 +72,55 @@ namespace MegaDesk_3_DrazenLucic
 
         private void nupDeskWidth_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (cancelInProgress) return;
-            string errorMsg;
-            if (!ValidWidth((int)nupDeskWidth.Value, out errorMsg))
-            {
-                // Cancel the event and select the text to be corrected by the user.
-                e.Cancel = true;
-                selectBoxValue(nupDeskWidth);
-                this.errorProvider1.SetError(nupDeskWidth, errorMsg);
-            }
+            ValidWidth();
         }
 
         private void nupDeskDepth_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (cancelInProgress) return;
-            string errorMsg;
-            if (!ValidDepth((int)nupDeskDepth.Value, out errorMsg))
-            {
-                // Cancel the event and select the text to be corrected by the user.
-                e.Cancel = true;
-                selectBoxValue(nupDeskDepth);
-                this.errorProvider1.SetError(nupDeskDepth, errorMsg);
-            }
-        }
-
-        private void nupDeskWidth_Validated(object sender, EventArgs e)
-        {
-            // If all conditions have been met, clear the ErrorProvider of errors.
-            errorProvider1.SetError(nupDeskWidth, "");
-        }
-
-        private void nupDeskDepth_Validated(object sender, EventArgs e)
-        {
-            // If all conditions have been met, clear the ErrorProvider of errors.
-            errorProvider1.SetError(nupDeskDepth, "");
+            ValidDepth();
         }
 
         // Set the ErrorProvider error with the text to display for desk width. 
-        private bool ValidWidth(int width, out string errorMessage)
+        private bool ValidWidth()
         {
+            int width = (int)nupDeskWidth.Value;
             if (width > Desk.MAX_WIDTH)
             {
-                errorMessage = "Maximum allowed width is " + Desk.MAX_WIDTH + " inches.";
+                errorProvider1.SetError(nupDeskWidth,
+                    "Maximum allowed width is " + Desk.MAX_WIDTH + " inches.");
                 return false;
             }
 
             if (width < Desk.MIN_WIDTH)
             {
-                errorMessage = "Minimum allowed width is " + Desk.MIN_WIDTH + " inches.";
+                errorProvider1.SetError(nupDeskWidth, 
+                    "Minimum allowed width is " + Desk.MIN_WIDTH + " inches.");
                 return false;
             }
 
-            errorMessage = "";
+            errorProvider1.SetError(nupDeskWidth, "");
             return true;
         }
 
         // Set the ErrorProvider error with the text to display for desk depth. 
-        private bool ValidDepth(int depth, out string errorMessage)
+        private bool ValidDepth()
         {
+            int depth = (int)nupDeskDepth.Value;
             if (depth > Desk.MAX_DEPTH)
             {
-                errorMessage = "Maximum allowed depth is " + Desk.MAX_DEPTH + " inches.";
+                errorProvider1.SetError(nupDeskDepth,
+                    "Maximum allowed depth is " + Desk.MAX_DEPTH + " inches.");
                 return false;
             }
 
             if (depth < Desk.MIN_DEPTH)
             {
-                errorMessage = "Minimum allowed depth is " + Desk.MIN_DEPTH + " inches.";
+                errorProvider1.SetError(nupDeskDepth,
+                    "Minimum allowed depth is " + Desk.MIN_DEPTH + " inches.");
                 return false;
             }
 
-            errorMessage = "";
+            errorProvider1.SetError(nupDeskDepth, "");
             return true;
         }
 
@@ -164,34 +143,58 @@ namespace MegaDesk_3_DrazenLucic
 
         private void cboNumberOfDrawers_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cancelInProgress) return;
             // Check for the flag being set in the KeyDown event.
             if (nonNumberEntered)
             {
                 // Stop the character from being entered into the control since it is non-numerical.
                 e.Handled = true;
-                this.errorProvider1.SetError(cboNumberOfDrawers, "Only numbers are allowed.");
+                errorProvider1.SetError(cboNumberOfDrawers, "Only numbers are allowed.");
             }
             else
             {
-                this.errorProvider1.SetError(cboNumberOfDrawers, "");
+                errorProvider1.SetError(cboNumberOfDrawers, "");
             }
         }
 
-        private void txtCustomerName_Validated(object sender, EventArgs e)
+        private void txtCustomerName_Validating(object sender,
+            System.ComponentModel.CancelEventArgs e)
         {
-
+            ValidCustomerName();
         }
 
-        private void txtCustomerName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private bool ValidCustomerName()
         {
-            if (cancelInProgress) return;
             if (txtCustomerName.Text.Length == 0)
             {
-                // Cancel the event and select the text to be corrected by the user.
-                e.Cancel = true;
-                this.errorProvider1.SetError(txtCustomerName, "Customer name is mandatory.");
+                errorProvider1.SetError(txtCustomerName,
+                    "Customer name is mandatory.");
+                return false;
             }
+            else
+            {
+                errorProvider1.SetError(txtCustomerName, "");
+                return true;
+            }
+        }
+
+        private bool ValidForm()
+        {
+            if (!ValidCustomerName())
+            {
+                txtCustomerName.Focus();
+                return false;
+            }
+            if (!ValidWidth())
+            {
+                nupDeskWidth.Focus();
+                return false;
+            }
+            if (!ValidDepth())
+            {
+                nupDeskDepth.Focus();
+                return false;
+            }
+            return true;
         }
     }
 }

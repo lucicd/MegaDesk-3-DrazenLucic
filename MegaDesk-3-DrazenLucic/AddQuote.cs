@@ -5,63 +5,15 @@ namespace MegaDesk_3_DrazenLucic
 {
     public partial class AddQuote : Form
     {
-        bool cancelInProgress = false;
-
         public AddQuote()
         {
             InitializeComponent();
-            cancelInProgress = false;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            cancelInProgress = true;
-            var mainMenu = (MainMenu)Tag;
-            mainMenu.Show();
-            Close();
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
             cboNumberOfDrawers.SelectedItem = "0";
             cboSurfaceMaterial.SelectedItem = "Oak";
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (!ValidForm()) return;
-            var mainMenu = (MainMenu)Tag;
-            Desk newDesk = new Desk();
-            newDesk.CustomerName = txtCustomerName.Text;
-            newDesk.Depth = (int)nupDeskDepth.Value;
-            newDesk.Width = (int)nupDeskWidth.Value;
-            newDesk.NumberOfDrawers = Int32.Parse(cboNumberOfDrawers.Text);
-
-            if (rboProductionTime3.Checked)
-            {
-                newDesk.ProductionTime = 3;
-            }
-            else if (rboProductionTime5.Checked)
-            {
-                newDesk.ProductionTime = 5;
-            }
-            else if (rboProductionTime7.Checked)
-            {
-                newDesk.ProductionTime = 7;
-            }
-            else
-            {
-                newDesk.ProductionTime = 14;
-            }
-
-            newDesk.SurfaceMaterial = Program.SurfaceMaterialId(cboSurfaceMaterial.Text);
-
-            Program.Quotes.Add(newDesk.Quote);
-
-            DisplayQuote displayQuoteForm = new DisplayQuote(newDesk.Quote);
-            displayQuoteForm.Tag = mainMenu;
-            displayQuoteForm.Show(mainMenu);
-            Close();
         }
 
         private void nupField_Enter(object sender, EventArgs e)
@@ -195,6 +147,54 @@ namespace MegaDesk_3_DrazenLucic
                 return false;
             }
             return true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var nextForm = (Form)Tag;
+            nextForm.Show();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (!ValidForm()) return;
+            Desk newDesk = new Desk();
+            newDesk.CustomerName = txtCustomerName.Text;
+            newDesk.Depth = (int)nupDeskDepth.Value;
+            newDesk.Width = (int)nupDeskWidth.Value;
+            newDesk.NumberOfDrawers = Int32.Parse(cboNumberOfDrawers.Text);
+
+            if (rboProductionTime3.Checked)
+            {
+                newDesk.ProductionTime = 3;
+            }
+            else if (rboProductionTime5.Checked)
+            {
+                newDesk.ProductionTime = 5;
+            }
+            else if (rboProductionTime7.Checked)
+            {
+                newDesk.ProductionTime = 7;
+            }
+            else
+            {
+                newDesk.ProductionTime = 14;
+            }
+
+            newDesk.SurfaceMaterial = Program.SurfaceMaterialId(cboSurfaceMaterial.Text);
+
+            Program.Quotes.Add(newDesk.Quote);
+
+            DisplayQuote displayQuoteForm = new DisplayQuote(newDesk.Quote);
+            var mainMenu = (MainMenu)Tag;
+            displayQuoteForm.Tag = mainMenu;
+            Tag = displayQuoteForm;
+            Close();
         }
     }
 }

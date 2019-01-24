@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace MegaDesk_3_DrazenLucic
 {
@@ -10,6 +11,7 @@ namespace MegaDesk_3_DrazenLucic
         public DeskQuotes()
         {
             quotes = new List<DeskQuote>();
+            LoadFromFile();
         }
 
         public List<DeskQuote> GetAll()
@@ -39,6 +41,20 @@ namespace MegaDesk_3_DrazenLucic
         public void Add(DeskQuote quote)
         {
             quotes.Add(quote);
+            string[] lines = quotes.ConvertAll(x => x.MakeFileRecord()).ToArray();
+            File.WriteAllLines("quotes.txt", lines);
+        }
+
+        private void LoadFromFile()
+        {
+            if (File.Exists("quotes.txt"))
+            {
+                string[] lines = File.ReadAllLines("quotes.txt");
+                foreach (string line in lines)
+                {
+                    quotes.Add(new DeskQuote(line));
+                }
+            }
         }
     }
 }

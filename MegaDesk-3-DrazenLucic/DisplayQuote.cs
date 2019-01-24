@@ -22,8 +22,6 @@ namespace MegaDesk_3_DrazenLucic
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            var mainMenu = (MainMenu)Tag;
-            mainMenu.Show();
             Close();
         }
 
@@ -52,6 +50,12 @@ namespace MegaDesk_3_DrazenLucic
         private void DisplayQuote_Shown(object sender, EventArgs e)
         {
             ShowQuote();
+        }
+
+        private void DisplayQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var nextForm = (Form)Tag;
+            nextForm.Show();
         }
     }
 }

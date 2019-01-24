@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace MegaDesk_3_DrazenLucic
 {
@@ -8,6 +9,26 @@ namespace MegaDesk_3_DrazenLucic
         {
             this.QuotedDesk = quotedDesk;
             this.QuoteDate = DateTime.Now;
+        }
+
+        public DeskQuote(string fileRec)
+        {
+            string[] split = fileRec.Split('\t');
+            Desk desk = new Desk();
+            this.QuotedDesk = desk;
+            desk.CustomerName = split[0];
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            string strDate = split[1];
+            DateTime dt;
+            if (DateTime.TryParse(strDate, out  dt))
+            {
+                this.QuoteDate = dt;
+            }
+            desk.Width = Convert.ToInt32(split[2]);
+            desk.Depth = Convert.ToInt32(split[3]);
+            desk.SurfaceMaterial = (Materials)Convert.ToInt32(split[4]);
+            desk.NumberOfDrawers = Convert.ToInt32(split[5]);
+            desk.ProductionTime = Convert.ToInt32(split[6]);
         }
 
         public Desk QuotedDesk { get; }
@@ -22,7 +43,7 @@ namespace MegaDesk_3_DrazenLucic
             }
         }
 
-        public DateTime QuoteDate { get; }
+        public DateTime QuoteDate { get; set; }
 
         public double BasePrice
         {
@@ -168,6 +189,18 @@ namespace MegaDesk_3_DrazenLucic
                 };
                 return row;
             }
+        }
+
+        public string MakeFileRecord()
+        {
+            return String.Format("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}", 
+                this.QuotedDesk.CustomerName,
+                this.QuoteDate.ToString("dd-MMM-yy"),
+                this.QuotedDesk.Width,
+                this.QuotedDesk.Depth,
+                (int)this.QuotedDesk.SurfaceMaterial,
+                this.QuotedDesk.NumberOfDrawers,
+                this.QuotedDesk.ProductionTime);
         }
     }
 }

@@ -44,19 +44,19 @@
             this.label19 = new System.Windows.Forms.Label();
             this.lblSurfaceArea = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblTotalPrice = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.lblDrawersSurcharge = new System.Windows.Forms.Label();
+            this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblRushOrderSurcharge = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblMaterialSurcharge = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.lblMaterialSurcharge = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblAreaSurcharge = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblBasePrice = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblOrderDate = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -249,6 +249,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Calculation Details";
             // 
+            // lblDrawersSurcharge
+            // 
+            this.lblDrawersSurcharge.AutoSize = true;
+            this.lblDrawersSurcharge.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDrawersSurcharge.Location = new System.Drawing.Point(245, 136);
+            this.lblDrawersSurcharge.Name = "lblDrawersSurcharge";
+            this.lblDrawersSurcharge.Size = new System.Drawing.Size(20, 22);
+            this.lblDrawersSurcharge.TabIndex = 19;
+            this.lblDrawersSurcharge.Text = "?";
+            // 
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
@@ -259,36 +269,6 @@
             this.lblTotalPrice.Size = new System.Drawing.Size(25, 29);
             this.lblTotalPrice.TabIndex = 21;
             this.lblTotalPrice.Text = "?";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(35, 279);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(130, 29);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "Total Price";
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(25, 58);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 29);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Order Date:";
-            // 
-            // lblDrawersSurcharge
-            // 
-            this.lblDrawersSurcharge.AutoSize = true;
-            this.lblDrawersSurcharge.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDrawersSurcharge.Location = new System.Drawing.Point(245, 136);
-            this.lblDrawersSurcharge.Name = "lblDrawersSurcharge";
-            this.lblDrawersSurcharge.Size = new System.Drawing.Size(20, 22);
-            this.lblDrawersSurcharge.TabIndex = 19;
-            this.lblDrawersSurcharge.Text = "?";
             // 
             // label9
             // 
@@ -310,15 +290,15 @@
             this.lblRushOrderSurcharge.TabIndex = 18;
             this.lblRushOrderSurcharge.Text = "?";
             // 
-            // label11
+            // label13
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(36, 86);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 24);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Area Surcharge";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(36, 184);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(168, 24);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Material Surcharge";
             // 
             // lblMaterialSurcharge
             // 
@@ -330,15 +310,26 @@
             this.lblMaterialSurcharge.TabIndex = 17;
             this.lblMaterialSurcharge.Text = "?";
             // 
-            // label13
+            // label22
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(36, 184);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(168, 24);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Material Surcharge";
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(35, 279);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(130, 29);
+            this.label22.TabIndex = 20;
+            this.label22.Text = "Total Price";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(36, 86);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(143, 24);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Area Surcharge";
             // 
             // lblAreaSurcharge
             // 
@@ -379,6 +370,15 @@
             this.label17.Size = new System.Drawing.Size(172, 24);
             this.label17.TabIndex = 13;
             this.label17.Text = "Drawers Surcharge";
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(25, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(150, 29);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Order Date:";
             // 
             // lblOrderDate
             // 
@@ -423,9 +423,12 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DisplayQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Display Quote";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisplayQuote_FormClosed);
             this.Shown += new System.EventHandler(this.DisplayQuote_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

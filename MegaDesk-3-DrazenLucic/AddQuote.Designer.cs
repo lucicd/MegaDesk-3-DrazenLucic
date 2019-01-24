@@ -286,8 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 606);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(674, 559);
             this.Controls.Add(this.gboProductionTime);
             this.Controls.Add(this.cboSurfaceMaterial);
             this.Controls.Add(this.cboNumberOfDrawers);
@@ -308,6 +307,7 @@
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Quote";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
             this.Load += new System.EventHandler(this.AddQuote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupDeskWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDeskDepth)).EndInit();
